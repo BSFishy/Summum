@@ -14,6 +14,7 @@ public class ClientProxy extends ProxyCommon {
 
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_DUST, 0, new ModelResourceLocation("summum:ultimus_dust"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_CRYSTAL, 0, new ModelResourceLocation("summum:ultimus_crystal"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_INGOT, 0, new ModelResourceLocation("summum:ultimus_ingot"));
     }
 
     public void init(FMLInitializationEvent e){
