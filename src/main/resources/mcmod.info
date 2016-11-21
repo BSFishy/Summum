@@ -1,0 +1,16 @@
+[
+{
+  "modid": "summum",
+  "name": "Summum",
+  "description": "Remember Avaritia? Yeah... Forget that. You now have Summum.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["LousyLynx"],
+  "credits": "The Forge and FML guys, for making Forge and FML",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
