@@ -12,10 +12,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ProxyCommon {
 
-    public void preInit(FMLPreInitializationEvent e){
+    public void preInit(FMLPreInitializationEvent e) {
         registerItem(SummumItems.ULTIMUS_DUST);
         registerItem(SummumItems.ULTIMUS_CRYSTAL);
         registerItem(SummumItems.ULTIMUS_INGOT);
+        registerItem(SummumItems.ULTIMUS_SWORD);
 
         GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_DUST),
                 "igi",
@@ -42,13 +43,21 @@ public class ProxyCommon {
                 'e', new ItemStack(Items.EMERALD),
                 'd', new ItemStack(SummumItems.ULTIMUS_DUST)
         );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_SWORD),
+                " i ",
+                " i ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
     }
 
-    public void init(FMLInitializationEvent e){
+    public void init(FMLInitializationEvent e) {
 
     }
 
-    public void postInit(FMLPostInitializationEvent e){
+    public void postInit(FMLPostInitializationEvent e) {
 
     }
 
