@@ -29,7 +29,7 @@ public final class SummumMod {
     @Instance
     public static SummumMod INSTANCE;
 
-    public static ToolMaterial MATERIAL = EnumHelper.addToolMaterial("MATERIAL", 4, -1, Float.MAX_VALUE, Float.MAX_VALUE, Integer.MAX_VALUE);
+    public static ToolMaterial MATERIAL = EnumHelper.addToolMaterial("MATERIAL", 3, -1, Float.MAX_VALUE, Float.MAX_VALUE, 22);
 
     public static CreativeTabs TAB = new CreativeTabs(MODID) {
         @Override

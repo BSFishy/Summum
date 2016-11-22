@@ -1,4 +1,4 @@
-package com.lousylynx.summum.items;
+package com.lousylynx.summum.items.tools.sword;
 
 import com.lousylynx.summum.SummumMod;
 import net.minecraft.item.ItemStack;

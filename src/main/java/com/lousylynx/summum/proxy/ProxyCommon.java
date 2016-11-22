@@ -17,6 +17,7 @@ public class ProxyCommon {
         registerItem(SummumItems.ULTIMUS_CRYSTAL);
         registerItem(SummumItems.ULTIMUS_INGOT);
         registerItem(SummumItems.ULTIMUS_SWORD);
+        registerItem(SummumItems.ULTIMUS_PICKAXE);
 
         GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_DUST),
                 "igi",
@@ -47,6 +48,14 @@ public class ProxyCommon {
         GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_SWORD),
                 " i ",
                 " i ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_PICKAXE),
+                "iii",
+                " s ",
                 " s ",
                 'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
                 's', new ItemStack(Items.STICK)
