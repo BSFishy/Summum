@@ -12,11 +12,18 @@ public class ClientProxy extends ProxyCommon {
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
 
+        // MISC
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_DUST, 0, new ModelResourceLocation("summum:ultimus_dust"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_CRYSTAL, 0, new ModelResourceLocation("summum:ultimus_crystal"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_INGOT, 0, new ModelResourceLocation("summum:ultimus_ingot"));
+
+        // TOOLS
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_SWORD, 0, new ModelResourceLocation("summum:ultimus_sword"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_PICKAXE, 0, new ModelResourceLocation("summum:ultimus_pickaxe"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_AXE, 0, new ModelResourceLocation("summum:ultimus_axe"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_SHOVEL, 0, new ModelResourceLocation("summum:ultimus_shovel"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_HOE, 0, new ModelResourceLocation("summum:ultimus_hoe"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_WAND, 0, new ModelResourceLocation("summum:ultimus_wand"));
     }
 
     public void init(FMLInitializationEvent e) {

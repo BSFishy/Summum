@@ -3,9 +3,7 @@ package com.lousylynx.summum;
 import com.lousylynx.summum.proxy.ProxyCommon;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -23,13 +21,11 @@ public final class SummumMod {
     public static final String DEPENDENCIES = "required-after:Forge@[12.18.2.2116,);";
     /*public static final String GUI_FACTORY = "";*/
 
-    @SidedProxy(clientSide = "com.lousylynx.summum.proxy.ClientProxy", serverSide = "com.lousylynx.summum.proxy.ServerProxy")
+    @SidedProxy(clientSide = "com.lousylynx.summum.proxy.ClientProxy", serverSide = "com.lousylynx.summum.proxy.ProxyCommon")
     public static ProxyCommon PROXY;
 
     @Instance
     public static SummumMod INSTANCE;
-
-    public static ToolMaterial MATERIAL = EnumHelper.addToolMaterial("MATERIAL", 3, -1, Float.MAX_VALUE, Float.MAX_VALUE, 22);
 
     public static CreativeTabs TAB = new CreativeTabs(MODID) {
         @Override

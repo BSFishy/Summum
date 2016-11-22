@@ -13,11 +13,19 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ProxyCommon {
 
     public void preInit(FMLPreInitializationEvent e) {
+        // MISC
         registerItem(SummumItems.ULTIMUS_DUST);
         registerItem(SummumItems.ULTIMUS_CRYSTAL);
         registerItem(SummumItems.ULTIMUS_INGOT);
+
+        // TOOLS
         registerItem(SummumItems.ULTIMUS_SWORD);
         registerItem(SummumItems.ULTIMUS_PICKAXE);
+        registerItem(SummumItems.ULTIMUS_AXE);
+        registerItem(SummumItems.ULTIMUS_SHOVEL);
+        registerItem(SummumItems.ULTIMUS_HOE);
+        registerItem(SummumItems.ULTIMUS_WAND);
+
 
         GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_DUST),
                 "igi",
@@ -59,6 +67,58 @@ public class ProxyCommon {
                 " s ",
                 'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
                 's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_AXE),
+                "ii ",
+                "is ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_AXE),
+                " ii",
+                " si",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_SHOVEL),
+                " i ",
+                " s ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_HOE),
+                "ii ",
+                " s ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_HOE),
+                " ii",
+                " s ",
+                " s ",
+                'i', new ItemStack(SummumItems.ULTIMUS_INGOT),
+                's', new ItemStack(Items.STICK)
+        );
+
+        GameRegistry.addRecipe(new ItemStack(SummumItems.ULTIMUS_WAND),
+                "dfd",
+                "acp",
+                "dsd",
+                'p', new ItemStack(SummumItems.ULTIMUS_PICKAXE),
+                'a', new ItemStack(SummumItems.ULTIMUS_AXE),
+                's', new ItemStack(SummumItems.ULTIMUS_SHOVEL),
+                'f', new ItemStack(SummumItems.ULTIMUS_SWORD),
+                'd', new ItemStack(SummumItems.ULTIMUS_DUST),
+                'c', new ItemStack(SummumItems.ULTIMUS_CRYSTAL)
         );
     }
 

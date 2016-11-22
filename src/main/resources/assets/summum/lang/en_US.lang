@@ -4,5 +4,9 @@ item.summum:ultimus_ingot.name=Ultimus Ingot
 
 item.summum:ultimus_sword.name=Ultimus Sword
 item.summum:ultimus_pickaxe.name=Ultimus Pickaxe
+item.summum:ultimus_axe.name=Ultimus Axe
+item.summum:ultimus_shovel.name=Ultimus Shovel
+item.summum:ultimus_hoe.name=Ultimus Hoe
+item.summum:ultimus_wand.name=Ultimus Wand
 
 itemGroup.summum=Summum Items

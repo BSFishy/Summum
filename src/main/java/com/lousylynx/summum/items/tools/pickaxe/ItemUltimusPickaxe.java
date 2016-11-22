@@ -10,14 +10,4 @@ public class ItemUltimusPickaxe extends ItemPickaxeBase {
     public ItemUltimusPickaxe() {
         super("ultimus_pickaxe");
     }
-
-    @Override
-    public boolean canHarvestBlock(IBlockState blockIn){
-        return true;
-    }
-
-    @Override
-    public Set<String> getToolClasses(ItemStack stack){
-        return ImmutableSet.of("pickaxe", "shovel", "axe", "shear");
-    }
 }
