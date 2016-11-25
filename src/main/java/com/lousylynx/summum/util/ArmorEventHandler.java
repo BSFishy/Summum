@@ -18,11 +18,13 @@ public class ArmorEventHandler {
     public void onLivingUpdateEvent(LivingUpdateEvent event) {
         if (event.getEntity() != null) {
             if (event.getEntity() instanceof EntityPlayer) {
-                //System.out.print("A");
-                if(((EntityPlayer) event.getEntity()).inventory.armorItemInSlot(1) != null) {
-                    ((EntityPlayer) event.getEntity()).capabilities.allowFlying = !((EntityPlayer) event.getEntity()).inventory.armorItemInSlot(1).getItem().equals(SummumItems.ULTIMUS_CHESTPLATE) || ((EntityPlayer) event.getEntity()).capabilities.isCreativeMode;
+                if(((EntityPlayer) event.getEntity()).inventory.armorItemInSlot(2) != null) {
+                    ((EntityPlayer) event.getEntity()).capabilities.allowFlying = ((EntityPlayer) event.getEntity()).inventory.armorItemInSlot(2).getItem().equals(SummumItems.ULTIMUS_CHESTPLATE) || ((EntityPlayer) event.getEntity()).capabilities.isCreativeMode;
                 }else if(((EntityPlayer) event.getEntity()).isCreative()){
-                    ((EntityPlayer) event.getEntity()).capabilities.isCreativeMode = false;
+                    ((EntityPlayer) event.getEntity()).capabilities.allowFlying = false;
+                }else{
+                    ((EntityPlayer) event.getEntity()).capabilities.allowFlying = false;
+                    ((EntityPlayer) event.getEntity()).capabilities.isFlying = false;
                 }
             }
         }
