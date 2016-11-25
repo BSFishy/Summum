@@ -24,6 +24,12 @@ public class ClientProxy extends ProxyCommon {
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_SHOVEL, 0, new ModelResourceLocation("summum:ultimus_shovel"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_HOE, 0, new ModelResourceLocation("summum:ultimus_hoe"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_WAND, 0, new ModelResourceLocation("summum:ultimus_wand"));
+
+        // ARMOR
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_HELMET, 0, new ModelResourceLocation("summum:ultimus_helmet"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_CHESTPLATE, 0, new ModelResourceLocation("summum:ultimus_chestplate"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_LEGGINGS, 0, new ModelResourceLocation("summum:ultimus_leggings"));
+        ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_BOOTS, 0, new ModelResourceLocation("summum:ultimus_boots"));
     }
 
     public void init(FMLInitializationEvent e) {

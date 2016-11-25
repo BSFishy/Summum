@@ -9,4 +9,9 @@ item.summum:ultimus_shovel.name=Ultimus Shovel
 item.summum:ultimus_hoe.name=Ultimus Hoe
 item.summum:ultimus_wand.name=Ultimus Wand
 
+item.summum:ultimus_helmet.name=Ultimus Helmet
+item.summum:ultimus_chestplate.name=Ultimus Chestplate
+item.summum:ultimus_leggings.name=Ultimus Leggings
+item.summum:ultimus_boots.name=Ultimus Boots
+
 itemGroup.summum=Summum Items
