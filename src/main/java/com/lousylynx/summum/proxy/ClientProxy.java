@@ -37,8 +37,7 @@ public class ClientProxy extends ProxyCommon {
         registerHandlers();
     }
 
-    private void registerHandlers(){
-
+    private void registerHandlers() {
         ArmorEventHandler handler = new ArmorEventHandler();
         MinecraftForge.EVENT_BUS.register(handler);
         FMLCommonHandler.instance().bus().register(handler);

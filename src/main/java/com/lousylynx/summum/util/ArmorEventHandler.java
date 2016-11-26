@@ -24,28 +24,4 @@ public class ArmorEventHandler {
             }
         }
     }
-
-    @SubscribeEvent
-    public void onPlayerHurt(LivingHurtEvent event) {
-        if (event.getEntity() != null && event.getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getEntity();
-            for (ItemStack stack : player.getArmorInventoryList()) {
-                if (stack != null && stack.getItem() instanceof ItemUltimusArmor) {
-                    event.setCanceled(true);
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public void onHurtPlayer(LivingAttackEvent event) {
-        if (event.getEntity() != null && event.getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getEntity();
-            for (ItemStack stack : player.getArmorInventoryList()) {
-                if (stack != null && stack.getItem() instanceof ItemUltimusArmor) {
-                    event.setCanceled(true);
-                }
-            }
-        }
-    }
 }

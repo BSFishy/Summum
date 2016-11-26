@@ -1,10 +1,13 @@
 package com.lousylynx.summum.proxy;
 
 import com.lousylynx.summum.SummumItems;
+import com.lousylynx.summum.util.DamageEventHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -158,6 +161,14 @@ public class ProxyCommon {
                 "i i",
                 'i', new ItemStack(SummumItems.ULTIMUS_INGOT)
         );
+
+        registerHandlers();
+    }
+
+    private void registerHandlers() {
+        DamageEventHandler handler = new DamageEventHandler();
+        MinecraftForge.EVENT_BUS.register(handler);
+        FMLCommonHandler.instance().bus().register(handler);
     }
 
     public void init(FMLInitializationEvent e) {
