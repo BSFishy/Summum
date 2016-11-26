@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = SummumMod.MODID, name = SummumMod.NAME, version = SummumMod.VERSION, /*guiFactory = SummumMod.GUI_FACTORY,*/ dependencies = SummumMod.DEPENDENCIES)
 public final class SummumMod {
@@ -45,10 +47,6 @@ public final class SummumMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         PROXY.preInit(e);
-
-        ArmorEventHandler handler = new ArmorEventHandler();
-        MinecraftForge.EVENT_BUS.register(handler);
-        FMLCommonHandler.instance().bus().register(handler);
     }
 
     @EventHandler

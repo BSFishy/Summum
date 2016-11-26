@@ -1,8 +1,11 @@
 package com.lousylynx.summum.proxy;
 
 import com.lousylynx.summum.SummumItems;
+import com.lousylynx.summum.util.ArmorEventHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,6 +33,15 @@ public class ClientProxy extends ProxyCommon {
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_CHESTPLATE, 0, new ModelResourceLocation("summum:ultimus_chestplate"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_LEGGINGS, 0, new ModelResourceLocation("summum:ultimus_leggings"));
         ModelLoader.setCustomModelResourceLocation(SummumItems.ULTIMUS_BOOTS, 0, new ModelResourceLocation("summum:ultimus_boots"));
+
+        registerHandlers();
+    }
+
+    private void registerHandlers(){
+
+        ArmorEventHandler handler = new ArmorEventHandler();
+        MinecraftForge.EVENT_BUS.register(handler);
+        FMLCommonHandler.instance().bus().register(handler);
     }
 
     public void init(FMLInitializationEvent e) {
