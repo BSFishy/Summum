@@ -1,5 +1,6 @@
 package com.lousylynx.summum.proxy;
 
+import com.lousylynx.summum.SummumConfig;
 import com.lousylynx.summum.SummumItems;
 import com.lousylynx.summum.multiplex.MultiplexRegistry;
 import com.lousylynx.summum.util.DamageEventHandler;
@@ -163,8 +164,6 @@ public class ProxyCommon {
         );
 
         registerHandlers();
-
-        MultiplexRegistry.registerItems();
     }
 
     private void registerHandlers() {
@@ -173,11 +172,12 @@ public class ProxyCommon {
     }
 
     public void init(FMLInitializationEvent e) {
+        SummumConfig.loadMultiplexes();
 
+        MultiplexRegistry.registerItems();
     }
 
     public void postInit(FMLPostInitializationEvent e) {
-
     }
 
 /*    private void registerBlock(BlockBase block) {
