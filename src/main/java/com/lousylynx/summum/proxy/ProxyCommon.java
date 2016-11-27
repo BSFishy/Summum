@@ -61,7 +61,7 @@ public class ProxyCommon {
                 "ded",
                 "ece",
                 "ded",
-                'c', new ItemStack(SummumItems.ULTIMUS_CRYSTAL.setContainerItem(SummumItems.ULTIMUS_CRYSTAL)),
+                'c', new ItemStack(SummumItems.ULTIMUS_CRYSTAL),
                 'e', new ItemStack(Items.EMERALD),
                 'd', new ItemStack(SummumItems.ULTIMUS_DUST)
         );

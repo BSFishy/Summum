@@ -3,6 +3,7 @@ package com.lousylynx.summum.multiplex.yaml;
 import com.lousylynx.summum.multiplex.Multiplex;
 import com.lousylynx.summum.multiplex.MultiplexRegistry;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -35,14 +36,31 @@ public class MultiplexLoader {
     private void loadMultiplexes(Map<String, Map<String, Object>> multiplexes) {
         for (String name : multiplexes.keySet()) {
             Map<String, Object> data = multiplexes.get(name);
-            Multiplex m = new Multiplex(name, ((int) data.get("red") << 16 | (int) data.get("green") << 8 | (int) data.get("blue")), getItem((String) data.get("requiredItem")), (int) data.get("requiredItemAmount"));
-            MultiplexRegistry.addMultiplex(m);
+            MultiplexChecker checker = new MultiplexChecker(name, data);
+            if (checker.check()) {
+                Multiplex m = new Multiplex(name, ((int) data.get("red") << 16 | (int) data.get("green") << 8 | (int) data.get("blue")), (checker.HAS_METADATA ? getItem((String) data.get("requiredItem"), (int) data.get("metadata")) : getItem((String) data.get("requiredItem"))), (int) data.get("requiredItemAmount"));
+                MultiplexRegistry.addMultiplex(m);
+            }
         }
     }
 
-    private Item getItem(String name) // fqrn = fully qualified resource name
+    protected static ItemStack getItem(String name) // fqrn = fully qualified resource name
     {
-        return Item.getByNameOrId(name);
+        Item i = Item.getByNameOrId(name);
+        if(i == null){
+            return null;
+        }
+
+        return new ItemStack(i);
+    }
+
+    protected static ItemStack getItem(String name, int metadata) {
+        Item i = Item.getByNameOrId(name);
+        if(i == null){
+            return null;
+        }
+        ItemStack stack = new ItemStack(i, 1, metadata);
+        return stack;
     }
 
     private String fileToString(File f) {

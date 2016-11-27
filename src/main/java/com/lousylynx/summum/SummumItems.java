@@ -17,21 +17,25 @@ import com.lousylynx.summum.items.tools.wand.ItemUltimusWand;
 public class SummumItems {
 
     // MISC
-    public static final ItemUltimusDust ULTIMUS_DUST = new ItemUltimusDust();
-    public static final ItemUltimusCrystal ULTIMUS_CRYSTAL = new ItemUltimusCrystal();
-    public static final ItemUltimusIngot ULTIMUS_INGOT = new ItemUltimusIngot();
+    public static ItemUltimusDust ULTIMUS_DUST = new ItemUltimusDust();
+    public static ItemUltimusCrystal ULTIMUS_CRYSTAL = new ItemUltimusCrystal();
+    public static ItemUltimusIngot ULTIMUS_INGOT = new ItemUltimusIngot();
 
     // TOOLS
-    public static final ItemUltimusSword ULTIMUS_SWORD = new ItemUltimusSword();
-    public static final ItemUltimusPickaxe ULTIMUS_PICKAXE = new ItemUltimusPickaxe();
-    public static final ItemUltimusShovel ULTIMUS_SHOVEL = new ItemUltimusShovel();
-    public static final ItemUltimusAxe ULTIMUS_AXE = new ItemUltimusAxe();
-    public static final ItemUltimusHoe ULTIMUS_HOE = new ItemUltimusHoe();
-    public static final ItemUltimusWand ULTIMUS_WAND = new ItemUltimusWand();
+    public static ItemUltimusSword ULTIMUS_SWORD = new ItemUltimusSword();
+    public static ItemUltimusPickaxe ULTIMUS_PICKAXE = new ItemUltimusPickaxe();
+    public static ItemUltimusShovel ULTIMUS_SHOVEL = new ItemUltimusShovel();
+    public static ItemUltimusAxe ULTIMUS_AXE = new ItemUltimusAxe();
+    public static ItemUltimusHoe ULTIMUS_HOE = new ItemUltimusHoe();
+    public static ItemUltimusWand ULTIMUS_WAND = new ItemUltimusWand();
 
     // ARMOR
-    public static final ItemUltimusHelmet ULTIMUS_HELMET = new ItemUltimusHelmet();
-    public static final ItemUltimusChestplate ULTIMUS_CHESTPLATE = new ItemUltimusChestplate();
-    public static final ItemUltimusLeggings ULTIMUS_LEGGINGS = new ItemUltimusLeggings();
-    public static final ItemUltimusBoots ULTIMUS_BOOTS = new ItemUltimusBoots();
+    public static ItemUltimusHelmet ULTIMUS_HELMET = new ItemUltimusHelmet();
+    public static ItemUltimusChestplate ULTIMUS_CHESTPLATE = new ItemUltimusChestplate();
+    public static ItemUltimusLeggings ULTIMUS_LEGGINGS = new ItemUltimusLeggings();
+    public static ItemUltimusBoots ULTIMUS_BOOTS = new ItemUltimusBoots();
+    
+    static{
+        ULTIMUS_CRYSTAL = (ItemUltimusCrystal) ULTIMUS_CRYSTAL.setContainerItem(ULTIMUS_CRYSTAL);
+    }
 }

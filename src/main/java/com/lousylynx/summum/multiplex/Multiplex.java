@@ -1,6 +1,6 @@
 package com.lousylynx.summum.multiplex;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import java.util.Objects;
 
@@ -8,11 +8,11 @@ public class Multiplex {
 
     private final String name;
     private final int color;
-    private final Item requiredItem;
+    private final ItemStack requiredItem;
     private final int requiredItemAmount;
     private int id;
 
-    public Multiplex(String name, int color, Item requiredItem, int requiredItemAmount) {
+    public Multiplex(String name, int color, ItemStack requiredItem, int requiredItemAmount) {
         this.name = name;
         this.color = color;
         this.requiredItem = requiredItem;
@@ -27,7 +27,7 @@ public class Multiplex {
         return color;
     }
 
-    public Item getRequiredItem() {
+    public ItemStack getRequiredItem() {
         return requiredItem;
     }
 
