@@ -1,6 +1,7 @@
 package com.lousylynx.summum.proxy;
 
 import com.lousylynx.summum.SummumItems;
+import com.lousylynx.summum.multiplex.MultiplexRegistry;
 import com.lousylynx.summum.util.DamageEventHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -163,12 +164,13 @@ public class ProxyCommon {
         );
 
         registerHandlers();
+
+        MultiplexRegistry.registerItems();
     }
 
     private void registerHandlers() {
         DamageEventHandler handler = new DamageEventHandler();
         MinecraftForge.EVENT_BUS.register(handler);
-        FMLCommonHandler.instance().bus().register(handler);
     }
 
     public void init(FMLInitializationEvent e) {
@@ -196,7 +198,7 @@ public class ProxyCommon {
         }
     }*/
 
-    private void registerItem(Item item) {
+    public static void registerItem(Item item) {
         GameRegistry.register(item);
     }
 }

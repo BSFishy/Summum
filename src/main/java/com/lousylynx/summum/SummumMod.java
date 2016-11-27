@@ -12,6 +12,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import java.io.File;
+
 @Mod(modid = SummumMod.MODID, name = SummumMod.NAME, version = SummumMod.VERSION, /*guiFactory = SummumMod.GUI_FACTORY,*/ dependencies = SummumMod.DEPENDENCIES)
 public final class SummumMod {
 
@@ -27,7 +29,9 @@ public final class SummumMod {
     @Instance
     public static SummumMod INSTANCE;
 
-    public static CreativeTabs TAB = new CreativeTabs(MODID) {
+    public String CONFIGURATION_DIRECTORY;
+
+    public CreativeTabs TAB = new CreativeTabs(MODID) {
         @Override
         public ItemStack getIconItemStack() {
             return new ItemStack(SummumItems.ULTIMUS_DUST);
@@ -41,6 +45,9 @@ public final class SummumMod {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+        CONFIGURATION_DIRECTORY = e.getModConfigurationDirectory().getPath() + "/summum";
+        SummumConfig.initialize();
+
         PROXY.preInit(e);
     }
 

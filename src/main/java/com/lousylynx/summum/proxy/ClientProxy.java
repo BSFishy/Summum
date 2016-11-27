@@ -1,6 +1,7 @@
 package com.lousylynx.summum.proxy;
 
 import com.lousylynx.summum.SummumItems;
+import com.lousylynx.summum.multiplex.MultiplexRegistry;
 import com.lousylynx.summum.util.ArmorEventHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -40,11 +41,12 @@ public class ClientProxy extends ProxyCommon {
     private void registerHandlers() {
         ArmorEventHandler handler = new ArmorEventHandler();
         MinecraftForge.EVENT_BUS.register(handler);
-        FMLCommonHandler.instance().bus().register(handler);
     }
 
     public void init(FMLInitializationEvent e) {
         super.init(e);
+
+        MultiplexRegistry.registerMultiplexes();
     }
 
     public void postInit(FMLPostInitializationEvent e) {

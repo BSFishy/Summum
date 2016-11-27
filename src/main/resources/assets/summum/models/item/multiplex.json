@@ -1,0 +1,29 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "summum:items/multiplex_0",
+    "layer1": "summum:items/multiplex_0_2"
+  },
+  "variants": {
+    "animationnumber": {
+      "0": {
+        "textures": {
+          "layer0": "summum:items/multiplex_0",
+          "layer1": "summum:items/multiplex_0_2"
+        }
+      },
+      "1": {
+        "textures": {
+          "layer0": "summum:items/multiplex_1",
+          "layer1": "summum:items/multiplex_1_2"
+        }
+      },
+      "2": {
+        "textures": {
+          "layer0": "summum:items/multiplex_2",
+          "layer1": "summum:items/multiplex_2_2"
+        }
+      }
+    }
+  }
+}
