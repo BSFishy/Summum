@@ -1,8 +1,10 @@
 package com.lousylynx.summum.multiplex;
 
+import com.lousylynx.summum.multiplex.yaml.MultiplexLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -55,14 +57,10 @@ public class MultiplexRegistry {
     }
 
     public static String getMultiplexName(int id) {
-        return getMultiplex(id).getName() + " " + I18n.format("item.summum:multiplex.name");
+        Multiplex m = getMultiplex(id);
+        ItemStack i = m.getRequiredItem();
+        return /*i.getDisplayName()*/m.getName() + " " + I18n.format("item.summum:multiplex.name");
     }
-
-    /*****************************************************************************************
-     *                                                                                       *
-     *                                       Items                                           *
-     *                                                                                       *
-     *****************************************************************************************/
 
     public static Multiplex getMultiplexFromItem(ItemMultiplexBase i) {
         final Multiplex[] returnValue = {null};

@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.yaml.snakeyaml.Yaml;
 
+import javax.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,7 +45,8 @@ public class MultiplexLoader {
         }
     }
 
-    protected static ItemStack getItem(String name) // fqrn = fully qualified resource name
+    @Nullable
+    public static ItemStack getItem(String name) // fqrn = fully qualified resource name
     {
         Item i = Item.getByNameOrId(name);
         if(i == null){
@@ -54,7 +56,8 @@ public class MultiplexLoader {
         return new ItemStack(i);
     }
 
-    protected static ItemStack getItem(String name, int metadata) {
+    @Nullable
+    public static ItemStack getItem(String name, int metadata) {
         Item i = Item.getByNameOrId(name);
         if(i == null){
             return null;
@@ -63,6 +66,7 @@ public class MultiplexLoader {
         return stack;
     }
 
+    @Nullable
     private String fileToString(File f) {
         try {
             return new String(Files.readAllBytes(f.toPath()));
