@@ -24,18 +24,18 @@ public class SummumConfig {
 
     public static final MultiplexLoader multiplexLoader = new MultiplexLoader();
 
-    public static Configuration getConfig(){
+    public static Configuration getConfig() {
         return config;
     }
 
-    public static void initialize(){
+    public static void initialize() {
         File configFile = new File(SummumMod.INSTANCE.CONFIGURATION_DIRECTORY + "/main.cfg");
         config = new Configuration(configFile);
 
         MinecraftForge.EVENT_BUS.register(new Object() {
             @SubscribeEvent
             public void onConfigChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
-                if(event.getModID().equals(SummumMod.MODID)){
+                if (event.getModID().equals(SummumMod.MODID)) {
                     reloadConfig();
                 }
             }
@@ -47,20 +47,20 @@ public class SummumConfig {
         multiplexLoader.initialize(multiplexFile);
     }
 
-    public static void reloadConfig(){
+    public static void reloadConfig() {
         saveConfig();
         loadConfig();
     }
 
-    public static void loadConfig(){
+    public static void loadConfig() {
         hard_mode = config.getBoolean("hard_mode", HARD_MODE, false, "If the recipes should be harder than the regular recipes");
         multiplex_mode = config.getBoolean("multiplex_mode", HARD_MODE, false, "If the recipes should use Multiplexes");
 
         saveConfig();
     }
 
-    public static void saveConfig(){
-        if(config.hasChanged())
+    public static void saveConfig() {
+        if (config.hasChanged())
             config.save();
     }
 

@@ -35,11 +35,11 @@ public class Multiplex {
         return requiredItemAmount;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 

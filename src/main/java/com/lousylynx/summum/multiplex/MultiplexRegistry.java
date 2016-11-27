@@ -22,7 +22,8 @@ public class MultiplexRegistry {
     protected static int id = 0;
     protected static final MultiplexColors colors = new MultiplexColors();
 
-    private MultiplexRegistry() { }
+    private MultiplexRegistry() {
+    }
 
     public static List<Multiplex> getMultiplexes() {
         return multiplexes;
@@ -45,15 +46,15 @@ public class MultiplexRegistry {
         return returnValue[0];
     }
 
-    public static Multiplex getMultiplex(int id){
+    public static Multiplex getMultiplex(int id) {
         final Multiplex[] returnValue = {null};
         multiplexes.forEach((Multiplex m) -> {
-            if(m.getId() == id) returnValue[0] = m;
+            if (m.getId() == id) returnValue[0] = m;
         });
         return returnValue[0];
     }
 
-    public static String getMultiplexName(int id){
+    public static String getMultiplexName(int id) {
         return getMultiplex(id).getName() + " " + I18n.format("item.summum:multiplex.name");
     }
 
@@ -71,7 +72,7 @@ public class MultiplexRegistry {
         return returnValue[0];
     }
 
-    private static void addItem(ItemStack i){
+    private static void addItem(ItemStack i) {
         items.add(i);
     }
 
@@ -87,13 +88,13 @@ public class MultiplexRegistry {
         createdItems = true;
     }
 
-    public static ItemMultiplexBase getItemFromMultiplex(Multiplex m){
+    public static ItemMultiplexBase getItemFromMultiplex(Multiplex m) {
         if (!createdItems)
             registerItems();
 
         ItemMultiplexBase[] returnValue = {null};
         items.forEach((ItemStack i) -> {
-            if(i.getItem() instanceof ItemMultiplexBase && i.getItem().getMetadata(i) == m.getId()){
+            if (i.getItem() instanceof ItemMultiplexBase && i.getItem().getMetadata(i) == m.getId()) {
                 returnValue[0] = (ItemMultiplexBase) i.getItem();
             }
         });
@@ -108,7 +109,7 @@ public class MultiplexRegistry {
         multiplexes.forEach(m -> {
             ItemMultiplexBase i = getItemFromMultiplex(m);
             Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(i, m.getId(), new ModelResourceLocation("summum:multiplex", "inventory"));
-            
+
             colors.addColor(m);
             Minecraft.getMinecraft().getItemColors().registerItemColorHandler(colors, i);
         });

@@ -12,8 +12,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import java.io.File;
-
 @Mod(modid = SummumMod.MODID, name = SummumMod.NAME, version = SummumMod.VERSION, /*guiFactory = SummumMod.GUI_FACTORY,*/ dependencies = SummumMod.DEPENDENCIES)
 public final class SummumMod {
 

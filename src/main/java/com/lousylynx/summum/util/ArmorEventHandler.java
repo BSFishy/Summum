@@ -1,12 +1,9 @@
 package com.lousylynx.summum.util;
 
 import com.lousylynx.summum.SummumItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import java.util.Objects;
 
 public class ArmorEventHandler {
 

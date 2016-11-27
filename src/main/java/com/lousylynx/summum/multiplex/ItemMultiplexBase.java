@@ -17,13 +17,13 @@ public class ItemMultiplexBase extends ItemBase {
     }
 
     @Override
-    public String getItemStackDisplayName(ItemStack stack){
+    public String getItemStackDisplayName(ItemStack stack) {
         return MultiplexRegistry.getMultiplexName(stack.getMetadata());
     }
 
     @Override
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
-        for(int i = 0; i < MultiplexRegistry.id; i++) {
+        for (int i = 0; i < MultiplexRegistry.id; i++) {
             subItems.add(new ItemStack(itemIn, 1, i));
         }
     }
