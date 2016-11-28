@@ -18,7 +18,7 @@ public final class SummumMod {
 
     public static final String MODID = "summum";
     public static final String NAME = "Summum";
-    public static final String VERSION = "0.3.2";
+    public static final String VERSION = "0.4";
     public static final String DEPENDENCIES = "required-after:Forge@[12.18.2.2116,);";
     /*public static final String GUI_FACTORY = "";*/
 
