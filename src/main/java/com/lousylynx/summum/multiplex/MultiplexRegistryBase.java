@@ -1,10 +1,6 @@
 package com.lousylynx.summum.multiplex;
 
-import com.lousylynx.summum.multiplex.yaml.MultiplexLoader;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.item.Item;
+import com.lousylynx.summum.SummumMod;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,16 +11,29 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-public class MultiplexRegistry {
+public abstract class MultiplexRegistryBase {
 
-    private static List<Multiplex> multiplexes = new ArrayList<>();
-    private static boolean createdItems = false;
-    private static List<ItemStack> items = new ArrayList<>();
+    protected static List<Multiplex> multiplexes = new ArrayList<>();
+    protected static boolean createdItems = false;
+    protected static List<ItemStack> items = new ArrayList<>();
 
     protected static int id = 0;
-    protected static final MultiplexColors colors = new MultiplexColors();
 
-    private MultiplexRegistry() {
+    protected static MultiplexRegistryBase registry;
+    /*static {
+        if(!Minecraft.getMinecraft().isIntegratedServerRunning()) {
+            System.out.println("Not a server");
+
+            MultiplexColors colors = new MultiplexColors();
+        }
+    }*/
+
+    public static void init() {
+        if (!SummumMod.PROXY.isSinglePlayer()) {
+            registry = new MultiplexRegistryServer();
+        } else {
+            registry = new MultiplexRegistryClient();
+        }
     }
 
     public static List<Multiplex> getMultiplexes() {
@@ -37,7 +46,7 @@ public class MultiplexRegistry {
     }
 
     public static void addMultiplexes(Collection<Multiplex> multiplexes) {
-        multiplexes.forEach(MultiplexRegistry::addMultiplex);
+        multiplexes.forEach(MultiplexRegistryBase::addMultiplex);
     }
 
     public static Multiplex getMultiplex(String name) {
@@ -57,10 +66,15 @@ public class MultiplexRegistry {
     }
 
     public static String getMultiplexName(int id) {
+        return registry.getMultiplexNameSided(id);
+    }
+
+    public abstract String getMultiplexNameSided(int id);
+    /*{
         Multiplex m = getMultiplex(id);
         ItemStack i = m.getRequiredItem();
-        return /*i.getDisplayName()*/m.getName() + " " + I18n.format("item.summum:multiplex.name");
-    }
+        return *//*i.getDisplayName()*//*m.getName() + " " + I18n.format("item.summum:multiplex.name");
+    }*/
 
     public static Multiplex getMultiplexFromItem(ItemMultiplexBase i) {
         final Multiplex[] returnValue = {null};
@@ -82,7 +96,7 @@ public class MultiplexRegistry {
         GameRegistry.register(i);
         List<ItemStack> subItems = new ArrayList<>();
         i.getSubItems(i, null, subItems);
-        subItems.forEach(MultiplexRegistry::addItem);
+        subItems.forEach(MultiplexRegistryBase::addItem);
         createdItems = true;
     }
 
@@ -100,16 +114,22 @@ public class MultiplexRegistry {
     }
 
     @SideOnly(Side.CLIENT)
-    public static void registerMultiplexes() {
+    public abstract void registerMultiplexes();/* {
         if (!createdItems)
             registerItems();
 
-        multiplexes.forEach(m -> {
-            ItemMultiplexBase i = getItemFromMultiplex(m);
-            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(i, m.getId(), new ModelResourceLocation("summum:multiplex", "inventory"));
+        if (!Minecraft.getMinecraft().isIntegratedServerRunning()) {
+            multiplexes.forEach(m -> {
+                ItemMultiplexBase i = getItemFromMultiplex(m);
+                Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(i, m.getId(), new ModelResourceLocation("summum:multiplex", "inventory"));
 
-            colors.addColor(m);
-            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(colors, i);
-        });
+                colors.addColor(m);
+                Minecraft.getMinecraft().getItemColors().registerItemColorHandler(colors, i);
+            });
+        }
+    }*/
+
+    public static void registerSidedMultiplexes() {
+        registry.registerMultiplexes();
     }
 }

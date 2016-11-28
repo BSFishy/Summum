@@ -2,7 +2,7 @@ package com.lousylynx.summum.proxy;
 
 import com.lousylynx.summum.SummumConfig;
 import com.lousylynx.summum.SummumItems;
-import com.lousylynx.summum.multiplex.MultiplexRegistry;
+import com.lousylynx.summum.multiplex.MultiplexRegistryBase;
 import com.lousylynx.summum.util.DamageEventHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -172,10 +172,10 @@ public class ProxyCommon {
     }
 
     public void init(FMLInitializationEvent e) {
-        if(SummumConfig.multiplex_mode) {
+        if (SummumConfig.multiplex_mode) {
             SummumConfig.loadMultiplexes();
 
-            MultiplexRegistry.registerItems();
+            MultiplexRegistryBase.registerItems();
         }
     }
 
@@ -201,5 +201,9 @@ public class ProxyCommon {
 
     public static void registerItem(Item item) {
         GameRegistry.register(item);
+    }
+
+    public boolean isSinglePlayer() {
+        return false;
     }
 }

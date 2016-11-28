@@ -1,7 +1,7 @@
 package com.lousylynx.summum.multiplex.yaml;
 
 import com.lousylynx.summum.multiplex.Multiplex;
-import com.lousylynx.summum.multiplex.MultiplexRegistry;
+import com.lousylynx.summum.multiplex.MultiplexRegistryBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.yaml.snakeyaml.Yaml;
@@ -28,7 +28,6 @@ public class MultiplexLoader {
 
         yaml = new Yaml();
         Map<String, Map<String, Object>> multiplexes = (Map<String, Map<String, Object>>) yaml.load(fileToString(file));
-        System.out.println(multiplexes.toString());
         loadMultiplexes(multiplexes);
     }
 
@@ -38,7 +37,7 @@ public class MultiplexLoader {
             MultiplexChecker checker = new MultiplexChecker(name, data);
             if (checker.check()) {
                 Multiplex m = new Multiplex(name, ((int) data.get("red") << 16 | (int) data.get("green") << 8 | (int) data.get("blue")), (checker.HAS_METADATA ? getItem((String) data.get("requiredItem"), (int) data.get("metadata")) : getItem((String) data.get("requiredItem"))), (int) data.get("requiredItemAmount"));
-                MultiplexRegistry.addMultiplex(m);
+                MultiplexRegistryBase.addMultiplex(m);
             }
         }
     }

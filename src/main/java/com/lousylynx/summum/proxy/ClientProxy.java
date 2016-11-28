@@ -1,7 +1,8 @@
 package com.lousylynx.summum.proxy;
 
+import com.lousylynx.summum.SummumConfig;
 import com.lousylynx.summum.SummumItems;
-import com.lousylynx.summum.multiplex.MultiplexRegistry;
+import com.lousylynx.summum.multiplex.MultiplexRegistryClient;
 import com.lousylynx.summum.util.ArmorEventHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -44,11 +45,17 @@ public class ClientProxy extends ProxyCommon {
 
     public void init(FMLInitializationEvent e) {
         super.init(e);
-
-        MultiplexRegistry.registerMultiplexes();
+        if (SummumConfig.multiplex_mode) {
+            MultiplexRegistryClient.registerSidedMultiplexes();
+        }
     }
 
     public void postInit(FMLPostInitializationEvent e) {
         super.postInit(e);
+    }
+
+    @Override
+    public boolean isSinglePlayer() {
+        return true;
     }
 }

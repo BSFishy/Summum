@@ -1,5 +1,6 @@
 package com.lousylynx.summum;
 
+import com.lousylynx.summum.multiplex.MultiplexRegistryBase;
 import com.lousylynx.summum.proxy.ProxyCommon;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -43,6 +44,8 @@ public final class SummumMod {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+        MultiplexRegistryBase.init();
+
         CONFIGURATION_DIRECTORY = e.getModConfigurationDirectory().getPath() + "/summum";
         SummumConfig.initialize();
 

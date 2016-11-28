@@ -34,8 +34,8 @@ public class SummumItems {
     public static ItemUltimusChestplate ULTIMUS_CHESTPLATE = new ItemUltimusChestplate();
     public static ItemUltimusLeggings ULTIMUS_LEGGINGS = new ItemUltimusLeggings();
     public static ItemUltimusBoots ULTIMUS_BOOTS = new ItemUltimusBoots();
-    
-    static{
+
+    static {
         ULTIMUS_CRYSTAL = (ItemUltimusCrystal) ULTIMUS_CRYSTAL.setContainerItem(ULTIMUS_CRYSTAL);
     }
 }

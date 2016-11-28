@@ -44,7 +44,7 @@ public class SummumConfig {
         loadConfig();
     }
 
-    public static void loadMultiplexes(){
+    public static void loadMultiplexes() {
         File multiplexFile = new File(SummumMod.INSTANCE.CONFIGURATION_DIRECTORY + "/multiplexes.yaml");
         multiplexLoader.initialize(multiplexFile);
     }

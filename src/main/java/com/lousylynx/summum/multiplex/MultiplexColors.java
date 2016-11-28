@@ -2,10 +2,13 @@ package com.lousylynx.summum.multiplex;
 
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@SideOnly(Side.CLIENT)
 public class MultiplexColors implements IItemColor {
 
     private final Map<Integer, Integer> colors = new HashMap<>();

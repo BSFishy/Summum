@@ -1,7 +1,6 @@
 package com.lousylynx.summum.multiplex.yaml;
 
 import com.google.common.base.Strings;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLLog;
 
@@ -43,7 +42,7 @@ public class MultiplexChecker {
         if (!data.containsKey("requiredItem")) {
             logError("requiredItem");
             returnValue = false;
-        }else{
+        } else {
             hasItem = true;
         }
 
@@ -51,7 +50,7 @@ public class MultiplexChecker {
             HAS_METADATA = true;
         }
 
-        if(hasItem && !checkItem()){
+        if (hasItem && !checkItem()) {
             returnValue = false;
         }
 
@@ -65,7 +64,7 @@ public class MultiplexChecker {
         return returnValue;
     }
 
-    private boolean checkItem(){
+    private boolean checkItem() {
         ItemStack i;
         if (HAS_METADATA) {
             i = MultiplexLoader.getItem((String) data.get("requiredItem"), (int) data.get("metadata"));
@@ -73,7 +72,7 @@ public class MultiplexChecker {
             i = MultiplexLoader.getItem((String) data.get("requiredItem"));
         }
 
-        if(i == null){
+        if (i == null) {
             logError("has an item that is not in the game.", false);
             return false;
         }
@@ -86,14 +85,14 @@ public class MultiplexChecker {
             logLine();
         }
 
-        if(format) {
+        if (format) {
             FMLLog.warning("The Multiplex: \"" + this.name + "\" is missing the value for " + name);
         } else {
             FMLLog.warning("The Multiplex: \"" + this.name + "\" " + name);
         }
     }
 
-    private void logError(String name){
+    private void logError(String name) {
         logError(name, true);
     }
 
