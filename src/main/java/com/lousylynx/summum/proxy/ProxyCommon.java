@@ -172,9 +172,11 @@ public class ProxyCommon {
     }
 
     public void init(FMLInitializationEvent e) {
-        SummumConfig.loadMultiplexes();
+        if(SummumConfig.multiplex_mode) {
+            SummumConfig.loadMultiplexes();
 
-        MultiplexRegistry.registerItems();
+            MultiplexRegistry.registerItems();
+        }
     }
 
     public void postInit(FMLPostInitializationEvent e) {

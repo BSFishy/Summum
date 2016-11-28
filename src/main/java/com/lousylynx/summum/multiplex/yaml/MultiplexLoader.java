@@ -22,15 +22,13 @@ public class MultiplexLoader {
     @SuppressWarnings("unchecked")
     public void initialize(File file) {
         if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            MultiplexDefaultConfigGenerator gen = new MultiplexDefaultConfigGenerator(file);
+            gen.generateDefaultConfig();
         }
 
         yaml = new Yaml();
         Map<String, Map<String, Object>> multiplexes = (Map<String, Map<String, Object>>) yaml.load(fileToString(file));
+        System.out.println(multiplexes.toString());
         loadMultiplexes(multiplexes);
     }
 
@@ -49,7 +47,7 @@ public class MultiplexLoader {
     public static ItemStack getItem(String name) // fqrn = fully qualified resource name
     {
         Item i = Item.getByNameOrId(name);
-        if(i == null){
+        if (i == null) {
             return null;
         }
 
@@ -59,7 +57,7 @@ public class MultiplexLoader {
     @Nullable
     public static ItemStack getItem(String name, int metadata) {
         Item i = Item.getByNameOrId(name);
-        if(i == null){
+        if (i == null) {
             return null;
         }
         ItemStack stack = new ItemStack(i, 1, metadata);
@@ -67,7 +65,7 @@ public class MultiplexLoader {
     }
 
     @Nullable
-    private String fileToString(File f) {
+    public static String fileToString(File f) {
         try {
             return new String(Files.readAllBytes(f.toPath()));
         } catch (IOException e) {

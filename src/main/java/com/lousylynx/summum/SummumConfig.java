@@ -56,7 +56,7 @@ public class SummumConfig {
 
     public static void loadConfig() {
         hard_mode = config.getBoolean("hard_mode", HARD_MODE, false, "If the recipes should be harder than the regular recipes");
-        multiplex_mode = config.getBoolean("multiplex_mode", HARD_MODE, false, "If the recipes should use Multiplexes");
+        multiplex_mode = config.getBoolean("multiplex_mode", HARD_MODE, false, "If the recipes should use Multiplexes. REQUIRES RESTART");
 
         saveConfig();
     }
