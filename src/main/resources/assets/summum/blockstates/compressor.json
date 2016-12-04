@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "direction=north": { "model": "summum:compressor" },
+    "direction=east": { "model": "summum:compressor", "y": 90 },
+    "direction=south": { "model": "summum:compressor", "y": 180 },
+    "direction=west": { "model": "summum:compressor", "y": 270 },
+    "direction=up": { "model": "summum:compressor" },
+    "direction=down": { "model": "summum:compressor" }
+  }
+}

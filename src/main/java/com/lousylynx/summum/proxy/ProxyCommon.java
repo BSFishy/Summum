@@ -1,9 +1,15 @@
 package com.lousylynx.summum.proxy;
 
+import com.lousylynx.summum.SummumBlocks;
 import com.lousylynx.summum.SummumConfig;
 import com.lousylynx.summum.SummumItems;
+import com.lousylynx.summum.SummumMod;
+import com.lousylynx.summum.blocks.BlockBase;
+import com.lousylynx.summum.gui.GuiHandler;
 import com.lousylynx.summum.multiplex.MultiplexRegistryBase;
+import com.lousylynx.summum.tile.TileBase;
 import com.lousylynx.summum.util.DamageEventHandler;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -12,11 +18,14 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ProxyCommon {
 
     public void preInit(FMLPreInitializationEvent e) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(SummumMod.INSTANCE, new GuiHandler());
+
         // MISC
         registerItem(SummumItems.ULTIMUS_DUST);
         registerItem(SummumItems.ULTIMUS_CRYSTAL);
@@ -35,6 +44,8 @@ public class ProxyCommon {
         registerItem(SummumItems.ULTIMUS_CHESTPLATE);
         registerItem(SummumItems.ULTIMUS_LEGGINGS);
         registerItem(SummumItems.ULTIMUS_BOOTS);
+
+        registerBlock(SummumBlocks.COMPRESSOR);
 
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         //            RECIPES
@@ -182,22 +193,14 @@ public class ProxyCommon {
     public void postInit(FMLPostInitializationEvent e) {
     }
 
-/*    private void registerBlock(BlockBase block) {
+    private void registerBlock(BlockBase block) {
         GameRegistry.<Block>register(block);
         GameRegistry.register(block.createItem());
     }
 
     private void registerTile(Class<? extends TileBase> tile, String id) {
-        GameRegistry.registerTileEntity(tile, RS.ID + ":" + id);
-
-        try {
-            TileBase tileInstance = tile.newInstance();
-
-            tileInstance.getDataManager().getParameters().forEach(TileDataManager::registerParameter);
-        } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }*/
+        GameRegistry.registerTileEntity(tile, SummumMod.MODID + ":" + id);
+    }
 
     public static void registerItem(Item item) {
         GameRegistry.register(item);

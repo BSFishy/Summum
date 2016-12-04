@@ -52,15 +52,10 @@ repositories {
     maven {
         url "http://maven.amadornes.com/"
     }
-    maven {
-        url "https://mvnrepository.com/artifact/org.yaml/snakeyaml"
-    }
 }
 
 dependencies {
     runtime "mezz.jei:jei_1.10.2:3.13.3.373"
-
-    compile group: 'org.yaml', name: 'snakeyaml', version: '1.17'
 }
 
 processResources

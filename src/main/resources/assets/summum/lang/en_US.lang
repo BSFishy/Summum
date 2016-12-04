@@ -16,4 +16,8 @@ item.summum:ultimus_boots.name=Ultimus Boots
 
 item.summum:multiplex.name=Multiplex
 
+block.summum:compressor.name=Compressor
+
+gui.summum:compressor=Compressor
+
 itemGroup.summum=Summum Items
