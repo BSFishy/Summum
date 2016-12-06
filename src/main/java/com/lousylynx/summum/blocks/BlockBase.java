@@ -89,8 +89,6 @@ public abstract class BlockBase extends Block {
 
     @Override
     public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
-        System.out.println("Rotating block");
-
         if (!world.isRemote && getPlacementType() != null) {
             IHasDirection tile = (IHasDirection) world.getTileEntity(pos);
 
